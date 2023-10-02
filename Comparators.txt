@@ -1,0 +1,139 @@
+package com.canderstep.java.training.collections;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+public class ImmutableClassDemo {
+
+public static void main(String[] args) {
+
+// immutable - once object is created, it cant be changed.
+
+// Integer / Double /Float / Boolean - wrapper
+
+
+Course course1 = new Course(1, "Java", new int[]{1,2,3,5});
+
+Course course2 = new Course(2, "CPP", new int[]{1,2,3});
+
+Course course3 = new Course(3, ".Net", new int[]{1,2});
+
+Course course4 = new Course(4, "Python", new int[]{1,2,3,4,5,6,7});
+
+Course course5 = new Course(5, "AI", new int[]{1,2,3,4,5});
+
+
+List<Course> courses = new ArrayList<>();
+
+courses.add(course1); // comparable -
+courses.add(course2);
+courses.add(course3);
+courses.add(course4);
+courses.add(course5);
+
+System.out.println(courses);
+
+Collections.sort(courses, new StdCountBasedComparator());
+
+System.out.println("\n\n"+courses);
+
+
+List<Integer> arr = new ArrayList<>();
+arr.add(2);
+arr.add(1);
+arr.add(4);
+arr.add(3);
+arr.add(29);
+
+System.out.println(arr);
+
+Collections.sort(arr);
+
+System.out.println(arr);
+
+// Arrays - utility class for Array operations
+// Colllections - utility class for collections
+
+}
+
+
+
+}
+
+
+class StdCountBasedComparator implements Comparator<Course> {
+
+
+// 0 = means both are equal
+// -ve -> o1 small
+// +ve -> o2 small
+@Override
+public int compare(Course o1, Course o2) {
+return o1.getStdIds().length - o2.getStdIds().length;
+
+}
+
+}
+
+
+
+
+final class Course implements Comparable<Course> { // make class final
+
+private final int id;
+private final String name;
+private final int[] stdIds;
+
+
+public Course(int id, String str, int[] ids) {
+this.id = id;
+this.name = str;
+this.stdIds = ids;
+}
+
+
+
+public int getId() {
+return id;
+}
+
+
+public String getName() {
+return name;
+}
+
+
+public int[] getStdIds() {
+
+int[] result = new int[stdIds.length];
+
+for(int i=0; i<stdIds.length; i++)
+result[i] = stdIds[i];
+
+return result;
+}
+
+
+@Override
+public String toString() {
+return "Course [id=" + id + ", name=" + name + ", stdIds=" + Arrays.toString(stdIds) + "]";
+}
+
+
+
+// return int -
+// 0 = means both objects same
+// negative - this object is small
+// positive - o (parameter passed) is small
+@Override
+public int compareTo(Course o) {
+
+return this.name.compareTo(o.name);
+
+}
+
+}
+

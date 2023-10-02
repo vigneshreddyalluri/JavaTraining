@@ -1,0 +1,107 @@
+https://tomcat.apache.org/download-80.cgi
+
+B
+09:24 PM
+Bhanu
+to Everyone
+1. Create a Dynamic Web project
+
+B
+09:25 PM
+Bhanu
+to Everyone
+2. ( have Tomcat install if not - server is required to run Web app.. you cant run Web app without Web Server)
+
+B
+09:26 PM
+Bhanu
+to Everyone
+<h1> This is my First Web App!!! </h1>
+
+B
+09:28 PM
+Bhanu
+to Everyone
+http://localhost:8080/MyFirstWebApp/index.html
+
+B
+09:39 PM
+Bhanu
+to Everyone
+<dependency>
+<groupId>javax.servlet</groupId>
+<artifactId>javax.servlet-api</artifactId>
+<version>3.1.0</version>
+<scope>provided</scope>
+</dependency>
+
+<dependency>
+<groupId>javax.servlet.jsp</groupId>
+<artifactId>javax.servlet.jsp-api</artifactId>
+<version>2.3.1</version>
+<scope>provided</scope>
+</dependency>
+
+B
+09:40 PM
+Bhanu
+to Everyone
+.
+
+B
+09:40 PM
+Bhanu
+to Everyone
+.
+
+B
+09:40 PM
+Bhanu
+to Everyone
+.
+
+B
+09:40 PM
+Bhanu
+to Everyone
++++++++++++++++++++++++++++++++++++++++++++++++
+
+B
+09:40 PM
+Bhanu
+to Everyone
+<dependencies>
+<dependency>
+<groupId>javax.servlet</groupId>
+<artifactId>javax.servlet-api</artifactId>
+<version>3.1.0</version>
+<scope>provided</scope>
+</dependency>
+
+<dependency>
+<groupId>javax.servlet.jsp</groupId>
+<artifactId>javax.servlet.jsp-api</artifactId>
+<version>2.3.1</version>
+<scope>provided</scope>
+</dependency>
+
+</dependencies>
+
+B
+09:55 PM
+Bhanu
+to Everyone
+++++++++
+
+B
+09:55 PM
+Bhanu
+to Everyone
+<form action="register" method="post">
+
+Enter UserName and Password <br> <br>
+UserName : <input type="text" name="username" size="24" /> <br>
+Passowrd : <input type="text" name="pwd" size="24" /> <br>
+<input type="submit" value="Send Request" />
+
+</form>

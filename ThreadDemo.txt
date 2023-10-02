@@ -1,0 +1,198 @@
+public class ThreadingDemo {
+
+
+
+	public static void main(String[] args) {
+
+ 
+
+		System.out.println("Hello World!");
+
+		// main thread
+
+	
+
+ 
+
+	// Thread class
+
+	// Runnable interface
+
+	
+
+		// Thread life cycle -> ready -> started -> runnable -> running -> terminated 
+
+ 
+
+ 
+
+		ThreadDemo t = new ThreadDemo();  
+
+		t.start();  // start methods runs in separate thread.. it executes run method
+
+ 
+
+ 
+
+//		t.run(); 
+
+//		t.run();
+
+ 
+
+		// calling start to start thread.
+
+		// run() vs start()
+
+	  
+
+		Thread r = new Thread( new RunnbaleDemo() );		
+
+		r.start();
+
+ 
+
+ 
+
+		for(int i=0; i<10; i++) {
+
+			System.out.println("In main class : "+ i);
+
+		}
+
+	
+
+ 
+
+ 
+
+ 
+
+	}
+
+	
+
+
+
+	
+
+	
+
+}
+
+
+
+// Runnable
+
+class RunnbaleDemo implements Runnable {
+
+
+
+	@Override
+
+	public void run() {
+
+ 
+
+		for(int i=0; i<10; i++) {
+
+			// sddfff
+
+			System.out.println("In runnable class : "+ i);
+
+			// ssddd
+
+		}
+
+ 
+
+	}
+
+	
+
+}
+
+
+
+
+
+
+
+
+
+
+
+// run method
+
+class ThreadDemo extends Thread {
+
+	
+
+	@Override
+
+	public void run() {
+
+ 
+
+		for(int i=0; i<10; i++) {
+
+			// sddfff
+
+			System.out.println("In thread class : "+ i);
+
+			// ssddd
+
+		}
+
+	
+
+	}
+
+	
+
+}
+
+
+
+
+
+
+
+ // hardware - 256 gb / 128 core cpu..  
+
+
+
+
+
+ // myu laptip -  8 cpu/ 16 cpu , 8 gb ..  // 7 cpu  
+
+
+
+
+
+ //  read 10 files....  
+
+
+
+ // 2 => 20 mins...  
+
+
+
+ // 2 cpu..  => 2 threads / 10 - 
+
+
+
+
+
+
+
+// Thread - 
+
+
+
+
+
+
+
+
+

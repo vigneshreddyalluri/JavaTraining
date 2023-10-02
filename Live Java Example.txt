@@ -1,0 +1,33 @@
+1. Login into coveredCA.com - Which is an insurance web application. 
+2. It was in Monolithic applications. 
+3. Spring service - end point - url 
+4. Light weight web application - choose an end point - create an account login page.
+5. Create a new application. Get started in insurance. light weight
+
+6. Headers - Post Method - data sending. 201 account created - Green radio button - end point
+I have created a Spring boot controller  -- I have used rest control rest
+Classs
+Rest Controller 
+
+-- @Annotations - Spring container will auto detect the class and create a beans(created of objects== spring IOC Containers, instead of using new) 
+-- Servelets engine - Running Internlly - Common Congfig are already done by spring - 
+
+Dispatcher servlets - 
+Transaction Management - 
+
+
+-Collection Framework
+	Diiference bt list set
+	Hashmap and internal implementation
+	Its a super interface 
+
+
+
+
+
+BsFI
+Projects 
+Resume preparation
+
+
+

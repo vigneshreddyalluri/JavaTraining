@@ -1,0 +1,181 @@
+// Ex1 : Write a program to read Id ( String), name(String) and Marks(int) of Student using command lines arguments.
+
+
+Ex2 : Write a program to read Id ( String), name(String) and Marks(int) and Grade(string) of Student using command lines arguments. Print them in separate line each
+
+
+Ex3 . take 2 cmd line arguments , a and b. print max of 2 integers
+change : add else block . in else you pront the small number.
+
+Ex4 . take 3 cmd line arguments a, b and c. print max of 3 integers
+
+Ex5: read 2 values form cmd line, using ternary operator pair - find max val and print it to console
+---------8/9-----------------------------------------
+1. accept one int val(grater than 0) from cmd line, print day of week only that week.
+2. accept one int val(grater than 0) from cmd line, print month of year only.
+once with if/else nested/ once with switch
+3. Write a program to print even numbers below 20 using while loop
+4. Write a program to all numbers below 30 which are divisable by 4 but not 5 using while loop
+5. For each of the above prorams make a table - in each iteration value of i
+6. Use for loop for above while loop programs (3 above)
+
+---------------------8/10---------------------------
+1. write a program to print star triangle using for loop - n ( int - 5)
+
+*
+**
+***
+****
+*****
+
+
+2. write a program to number triangle using for while - n ( int - 5)
+
+1
+12
+123
+1234
+12345
+
+
+3. Create ArrayDemo class with main method. Create a student class with id, name, marks. marks should hold 6 subjects marks. initilize student from main method with all values. print stuent id, name and total.
+HInt : add method in student class get total by passing marks array.
+
+
+--------------------------------------8/11-----------------------------------------
+
+Addition of 2 matrices using 2D Array. 
+
+
+-------------------------------------------------------------------
+/*
+
+We have a collection of Order, which you need to sort based on different keys.
+ 1. sort based stock ( IBM, GOOG, AAPL, VOD.L etc)
+ 2. Sort based Qty
+ 3. Sort based on notional value of order.( nptional Value = Qty * price)
+
+ Order has object will have the following properties
+ OrderId, stockName, side( Buy/Sell), Qty and Price.
+
+
+
+2. generate a list of Order objects. then filter out duplicates.
+========================================================================
+
+1. how to debug a java program
+
+- which code you want to debug, then you add break points in those lines of code
+- instead of running c;ass, you need to debug.
+
+2. how to create immutable class
+
+
+Address -
+
+0. make all proeprties private
+1. setter method - stop modifications via setter methods
+2. through inheritance - stop modifications via inheritance
+3. returning objects from getter method - stop this -
+
+
+class Address {
+int hno;
+String streetName;
+String city;
+String state;
+String zipCode;
+}
+
+
+final class Student {
+
+private int id;
+private String name;
+private int age;
+private Address address;
+
+Address getAddress() {
+// return this.address;
+
+Address add = new Address();
+
+add.sethno(this.addresss.gethno());
+add.sethno(this.addresss.gethno());
+add.sethno(this.addresss.gethno());
+
+return add;
+}
+
+// remove setter methods
+}
+
+
+class SecondStd extends Student {
+
+
+}
+
+==================================================================
+Good at ( May be)
+	- writing pure logic
+
+Area to improve
+	- basic language fundamentals
+
+ 
+classes
+objects
+methods
+propeties
+basic collection operations
+
+
+POJO = plain old java objects
+
+Read java documrentation for each of the collection class you are going to use for the below programs
+
+
+1. create  a list (arraylist) of students
+	- add 5 students to list
+	- delete first student
+	- search a student with id=9 is present, if yes, print student details or 
+		else print :student not present"
+	- print all student objects
+
+2. create  a list (Linkedlist) of students
+	- add 5 students to list
+	- delete first student
+	- search a student with id=9 is present, if yes, print student details or 
+		else print :student not present"
+	- print all student objects
+
+3. create  a list Set of students( HashSet)
+	- add 5 students to list
+	- delete first student
+	- search a student with id=9 is present, if yes, print student details or 
+		else print :student not present"
+	- print all student objects
+
+4. create  a list Set of students( LinkedHashSet)
+	- add 5 students to list
+	- delete first student
+	- search a student with id=9 is present, if yes, print student details or 
+		else print :student not present"
+	- print all student objects
+
+5. create  a list Set of students( TreeSet)
+	- add 5 students to list
+	- delete first student
+	- search a student with id=9 is present, if yes, print student details or 
+		else print :student not present"
+	- print all student objects
+
+
+6. create Map of students( HashMap) ( id as key and student object as value)
+	- add 5 students to map
+	- delete first student 
+	- search a student with id=9 is present, if yes, print student details or 
+		else print :student not present"
+	- print all student objects
+

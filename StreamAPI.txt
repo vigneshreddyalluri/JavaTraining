@@ -1,0 +1,359 @@
+package com.canderstep.java.training.java8;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class StreamAPIDemo {
+
+public static void main(String[] args) {
+
+List<Integer> list = new ArrayList<>();
+
+list.add(10);
+list.add(40);
+list.add(10);
+list.add(20);
+list.add(18);
+list.add(19);
+
+
+List<Integer> uniqueList = list.stream().distinct().collect(Collectors.toList());
+
+System.out.println(" Unique : "+ uniqueList);
+
+
+// divided by 5 -
+
+System.out.println(list);
+
+List<Integer> result = new ArrayList();
+for(int i=0; i<list.size(); i++) {
+if(list.get(i) % 5 == 0) {
+result.add(list.get(i));
+}
+}
+
+System.out.println(result);
+
+
+// wiht help of Stream
+
+// source - collection
+// operations - each operation is returning a stream
+// chaining / pipelining
+// intermediate operations
+// Ternimal operations
+
+
+// map
+// flatmap
+
+
+// of(values/elents)
+// .stream()
+// StreamBuilder - .accept() , .build();
+
+
+// {1, 2,3 ,4 ,8 9, 10}
+
+// { {1, 2, 3,4} , {1,2,3,4,5,6,7,8,9} , {1,2,3,4,5,6987,,9} } // List<List<Interger>>
+
+// flatmap -> { 1, 2, 3,4, 1,2,3,4,5,6,7,8,9, 1,2,3,4,5,6987,,9 } //
+
+// performance - no much difference
+// parallel - parallel
+
+//
+
+// n -> 2*n
+List result2 = list.stream() // 8 - 16 cores -
+.filter( n -> {
+// code logic
+return n%5 == 0;
+} )
+.filter(n -> n%4==0)
+.map(n -> 2*n)
+.collect(Collectors.toList());
+
+System.out.println("with Streams " + result2);
+
+
+// forEach
+System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+
+Stud s1 = new Stud(2, "Krish", 21);
+Stud s2 = new Stud(1, "Krish", 18);
+Stud s3 = new Stud(5, "Krish",17);
+Stud s4 = new Stud(7, "Krish", 20);
+Stud s5 = new Stud(3, "Krish", 22);
+
+List<Stud> studList = new ArrayList();
+studList.add(s1); // s1 - toString() from Object class
+studList.add(s2);
+studList.add(s3);
+studList.add(s4);
+studList.add(s5);
+
+
+studList.stream().forEach(System.out::println); // Consumer
+
+
+// oldway
+int count = 0;
+
+for(int i=0; i< studList.size(); i++) {
+if( studList.get(i).getAge() > 20)
+count++;
+}
+System.out.println("Count : "+ count);
+
+// count()
+
+System.out.println(" Count with Stream API : "+ studList.stream().filter(s -> s.getAge() > 20).count() ) ;
+
+
+
+
+}
+
+}
+
+
+
+
+// toString() method will be called -
+/*
+*
+*
+*
+* toString() {
+*
+* return this.getClass() + "@" + obj. refernce..
+*
+* }
+*/
+
+
+
+
+class Stud {
+
+int id;
+String name;
+int age;
+
+public Stud(int id, String name, int age) {
+super();
+this.id = id;
+this.name = name;
+this.age = age;
+}
+
+
+public int getId() {
+return id;
+}
+public void setId(int id) {
+this.id = id;
+}
+public String getName() {
+return name;
+}
+public void setName(String name) {
+this.name = name;
+}
+public int getAge() {
+return age;
+}
+public void setAge(int age) {
+this.age = age;
+}
+
+
+public String toString() {
+
+return "ID : "+ this.id + " Name : " + this.name + " Age : "+ this.age;
+}
+
+}
+
+
+
+https://docs.oracle.com/javase/8/docs/api/?java/util/stream/Stream.html
+
+
+
+
+
+============================================================================================================================================================
+
+package com.canderstep.java.training.java8;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.DoubleSummaryStatistics;
+import java.util.IntSummaryStatistics;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
+
+public class StreamAPIDemo2 {
+
+public static void main(String[] args) {
+
+
+// Method Reference Collectors.joining
+
+
+
+// List<String> G7 = Arrays.asList("USA", "Japan", "France", "Germany", "Italy", "U.K.","Canada");
+// String G7Countries = G7.stream()
+// .map(String::toUpperCase)
+// .collect(Collectors.joining(", ")); //accepts delimeter..
+//
+// System.out.println(G7Countries);
+
+
+// System.out.println(" ********** ------- **************\n");
+// // Summary Statistics
+//
+List<Integer> primes = Arrays.asList(2, 13, 5, 17, 11, 3, 17, 8, 9, 23, 21, 29); //
+System.out.println(primes);
+//
+// IntSummaryStatistics stats = primes.stream()
+// .mapToInt((x) -> x) // map ( obj) vs mapInt (int)
+// .summaryStatistics(); // terminal operation
+//
+// stats.getCount();
+// stats.getMin();
+// System.out.println(stats);
+
+// System.out.println(" ********** ---Sorting ---- **************\n");
+
+// Sorting
+
+// Comparable or Comparator -
+
+System.out.println(primes.stream()
+.sorted()
+.map(x -> new String(x + ""))
+.collect(Collectors.joining(", ")));
+// .forEach(System.out::println);
+
+
+
+// // Primitive Streams
+// /*
+//
+// IntStream
+// FloatStream
+// LongStream
+// DoubleStream
+//
+// */
+//
+// Optional class
+
+// int[] integers = new int[] {20, 98, 12, 7, 35};
+// int min = Arrays.stream(integers) // Arrays - utility class to perform operations on Arrays
+// .min() // Returns OptionalInt
+// .getAsInt(); // returns 7
+//
+// int sum = IntStream.of(20, 98, 12, 7, 35).sum();
+// int total = IntStream.of(integers).sum();
+//
+// sum = Arrays.asList(33,45)
+// .stream()
+// .mapToInt(i -> i) // converting Object type(Integer) to primitive( int)
+// .sum();
+// System.out.println(sum);
+////
+// System.out.println(" ********** ------- **************\n");
+// Stream<Integer> infiniteStream = Stream.iterate(2, i -> i * 2); // 2 4 8 16 32 64 128 256 512 1024.. 2048
+//
+// List<Integer> collect = infiniteStream
+// .peek(System.out::println) // peek
+// .limit(10) //
+//
+// .skip(3) //
+// .collect(Collectors.toList()); // terminal
+// System.out.println(collect);
+
+
+//
+
+
+// System.out.println(" ********** --- Custom obj sorting ---- **************\n");
+//
+// List<Order> orders = getOrders();
+//
+// System.out.println(" Before Sorting \n : ");
+// orders.stream().forEach(System.out::println);
+//
+// System.out.println(" -------------------- after sorting --------- ");
+//
+// orders.stream()
+// .sorted( (o1, o2) -> (int) (o1.getQty() - o2.getQty()))
+// .forEach(System.out::println);
+//
+// Comparable / Comparator -> comapre(x, y) /comapreTo -> retunr type of theswe methods -> int
+
+
+
+
+// order notional = qty * price -
+
+
+// Double sumOfNotional = orders.stream()
+// .map(order -> order.getPrice() * order.getQty())
+// .reduce(0.0, Double::sum); // map reduce -
+//
+// System.out.println(" Total order Notional : " + sumOfNotional);
+//
+//
+////
+////
+// DoubleSummaryStatistics customStats = orders.stream()
+// .collect(Collectors.summarizingDouble(Order::getPrice));
+//
+// System.out.println(" Summary stats : \n" + customStats);
+////
+////
+// List<Integer> intList = Arrays.asList(2, 4, 5, 9, 8,3,11, 6, 8);
+//
+// Map<Boolean, List<Integer>> isEven = intList.stream()
+// .collect(Collectors.partitioningBy(i -> i % 2 == 0)); //size of map = 2 ; values are true /false
+//
+//
+// System.out.println(isEven);
+// System.out.println(isEven.get(true));
+// System.out.println(isEven.get(false));
+
+//
+//
+//
+// System.out.println(" ---------- **** GroupBy****** ---------------------");
+//
+//
+// Map<String, List<Order>> groupBySide = orders.stream()
+// .collect(Collectors.groupingBy(e -> e.getSide())); // map < buy , list <Order> ; sell - List<Order>
+//
+// System.out.println("Buy : + "+ groupBySide.get("Buy"));
+// System.out.println("Sell :" + groupBySide.get("Sell"));
+// System.out.println("Sell :" + groupBySide.get("SSell"));
+//
+//
+// System.out.println(" ********** ------- **************\n");
+//
+//
+// // Map / reduce
+//
+// List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6);
+// int result = numbers
+// .stream()
+// .reduce(0, (subtotal, el

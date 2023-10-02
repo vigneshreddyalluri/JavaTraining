@@ -1,0 +1,21 @@
+public class CmdArgsDemo 
+{
+
+public static void main(String[] args) 
+{ // { 'Teja', 'Vignesh' }
+
+System.out.println(args.length);
+
+
+String a = args[0];
+
+String b = args[1];
+
+int c = Integer.valueOf( args[2] );
+
+
+System.out.println( a+b );
+
+}
+
+}

@@ -1,0 +1,103 @@
+- Serialization
+- object state persistance
+- serializable interface
+- readObject / writeObject
+- transient keyword
+- Serial UID
+- state persistance
+serialization :
+
+converting object state to byte stream/array
+
+deserialization :
+
+bytestream to an object
+
+class student implement Serializable {
+id, age, name , email ;
+}
+
+
+serializable -
+
+s1 - ObjectInputStream /ObjectOutputStream
+s1 =
+s2 =
+s3 =
+
+// Marker interfaces - are special type of intefaces in java, which actually dont contain any methods /proeprties in it.
+But they do mark the classes as special capable classes..
+
+Serializable, Clonable, Remote etc
+
+
+interface Serializable {
+}
+
+serialVersionUID -
+
+genrate one long val => serialVersionUID static final field
+final static serialVersionUID = 1965532080433939881;
+
+java.io.InvalidClassException: com.canderstep.java.training.io.Student; local class incompatible:
+stream classdesc serialVersionUID = -1965532080433939881,
+local class serialVersionUID = 5922328707723930633
+
+
+
+
+- File Handling
+
+- java i/o file hierarchy
+
+
+- simple reading from file
+- writing to file
+- reading properties from file
+- converting data to xml / json etc .. ( reading xml and writing json to anohter file/send it over network)
+
+IO - input output
+
+IO framework -
+
+stream -
+
+- 3 streams
+
+- output stream =>
+- input stream =>
+- error stream =>
+
+System.err
+System.out
+System.in - in console -> system.in -> scanner -> nextInt() / next() ..
+
+Console -
+
+
+
+
+- Scanner - wrapper on top of input stream
+Scanner s = new Scanner(System.in);
+
+System.out.println( content ) -
+
+
+reading - inputstream
+writing - outputstream
+
+File Stream -
+
+input source -> Program -> output from prgm
+
+
+define source ( idtify the file that needs ot be read/write)
+open stream on it
+perform read / write operation
+close the stream/file
+
+FileOutputStream - to write primitives/ characters
+
+FileWriter - characters
+
+BufferedOutputtream - to write buffer of data / gives better performance

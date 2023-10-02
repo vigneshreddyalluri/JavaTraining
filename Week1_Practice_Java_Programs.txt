@@ -1,0 +1,173 @@
+
+Practice Questions Weekly :
+
+1. Write a program in java to print the sum of all numbers from 50 to 250(inclusive of 50 and 250) that are multiples of 3 and not divisible by 9.
+
+	Input Format:
+	There should be no input from the user
+
+	Output Format: 
+	The sum of integers from 50 to 250 that are multiples of 3 and not divisible by 9 followed by a new line
+
+	Output :
+	6783
+	
+	
+2. Given 2 integers, A and B, print 'true' if one if them is 10 or if their sum is 10.Else print 'false'
+	 makes10(9, 10) --> true 
+	 makes10(9, 9) --> false 
+	 makes10(1, 9) -->  true
+	 
+	 sample input:
+	 9
+	 10
+	 sample output:
+	 true
+
+3. Given a positive integer n, print the absolute difference between n and 21, except return double the absolute difference if n is over 21. 
+
+	Sample input:
+	19
+	Sample output:
+	2
+
+	Sample Input:
+	25
+	Sample Output:
+	8
+
+4. Take two positive integer values from console, print their sum, unless the two values are the same, then print double of their sum. 
+
+	sample input 1:
+	3
+	2
+	sample output 1:
+	5
+
+	sample input 2:
+	2
+	2
+	sample output 2:
+	8
+
+5. Given two non-negative int values, print 'true' followed by a new line.If they have the same last digit, such as with 27 and 57. Else print 'false' followed by a new line.
+ 
+	 lastDigit(7, 17) --> true 
+	 lastDigit(6, 17) --> false 
+	 
+	 
+	 Sample input:
+	 7
+	 17
+	 sample output:
+	 true
+	 
+6. Given two temperatures, print 'true' if one is less than 0 and the other is greater than 100.Else print 'false' 
+
+	icyHot(120, -1)--> true 
+	icyHot(2, 120) -->  false 
+
+	Sample input:
+
+	120
+	-1
+
+
+	sample output:
+
+	true
+	
+7. "We'll say that a number is ""teen"" if it is in the range 13..19 inclusive . Given 2 int values, print 'true' if one or the other is teen, but not both.Else print 'false'
+	loneTeen(13, 99) --> true 
+	loneTeen(13, 13) --> false
+
+	Sample input:
+	13
+	99
+
+	Sample output:
+	true"
+
+8. Write a program to find whether a 2-digit number is good or bad. Also find its cycle length.
+
+	The procedure is as follows. 
+
+	We start with a two digit positive integer and construct a sequence of two digit numbers as follows. Let the current number be x. If 2x is less than 100, then the next number in the sequence is 2x. Otherwise the next number in the sequence is 2x - 100. 
+
+	A number is said to be good if we can start with the number and get back to the same number later in the sequence. A number that is not good is said to be bad. For example, 20 is a good number, because the sequence starting with 20 is 20, 40, 80, 60, 20. So, after four steps, we get back to 20. So the cycle length is 4. 
+
+	However 10 is bad because starting from 10 we get the sequence 10, 20, 40, 80, 60, 20, . . . in which 10 never reappears. After 5 steps we get back to 20 and the sequence repeats. So the cycle length is 5. 
+
+	Input Specification:
+	Input consists of a 2 digit positive integer. 
+
+	Output Specification:
+	The first line of the output is either 'GOOD' or 'BAD', followed by a newline. The second line of the output consists of an integer which corresponds to the cycle length.The inputs will be given such that the maximum cycle length is 10.
+
+	Sample Input:
+	30 
+
+	Sample output:
+	BAD
+	5
+
+	Sample Input:
+	40 
+
+	Sample output:
+	GOOD
+	4
+
+
+9. A repetition-free number is one in which each digit {1,2,3,...,9} appears at most once and the digit 0 does not appear. A repetition-free number can have at most nine digits, but may also have fewer than nine digits. Some examples of repetition-free numbers are 9, 32, 489, 98761 and 983245.
+	 Given a number (say x) you need to find whether it is a repetition free number or not. If it is, print the same number(x), else if it has repetitions then print the number of occurences of the first repetitive digit you encounter. 
+    Write a program to solve the problem.
+	 Input Format:
+	 The input consists of a single positive integer.
+	 Output Format:
+	 The output is a single positive integer that is the number of occurences of the first repetitive digit or the same input integer.
+	 Sample Input :
+	 219
+	 Sample Output :
+	 219
+	 
+	 Sample Input:
+	 1876489
+	 Sample output:
+	 2 
+
+
+10. "Problem Statement :
+	A sequence of n > 0 integers is called a jolly jumper if the absolute values of the difference between successive elements take on all the values 1 through n-1. For instance, 
+	1 4 2 3
+	is a jolly jumper, because the absolutes differences are 3, 2, and 1 respectively.
+
+	Write a java program to identify whether a given sequence of numbers is a jolly jumper or not.
+
+	Input Format :
+	The input consists of n+1 lines consisting of single integers where 'n' corresponds to the number of elements in the given sequence. The first line of the input corresponds to n. The next 'n' lines of input correspond to the elements in the sequence.
+
+	Output Format :
+	The output consists of a single line which consists of a string indicating whether the given sequence is a jolly jumper (yes) or not (no),  followed by a newline.
+
+	Sample Input :
+
+	4
+	1
+	4
+	2
+	3
+	Sample Output:
+	Yes
+
+	Sample Input:
+	5
+	32 
+	34
+	31
+	30 
+	26
+
+	Sample Output:
+	Yes
+

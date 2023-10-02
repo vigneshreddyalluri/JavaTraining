@@ -1,0 +1,582 @@
+package com.canderstep.java.training.java8;
+
+
+
+import java.util.ArrayList;
+
+import java.util.Arrays;
+
+import java.util.DoubleSummaryStatistics;
+
+import java.util.IntSummaryStatistics;
+
+import java.util.List;
+
+import java.util.Map;
+
+import java.util.stream.Collectors;
+
+import java.util.stream.IntStream;
+
+import java.util.stream.Stream;
+
+
+
+public class StreamAPIDemo2 {
+
+
+
+	public static void main(String[] args) {
+
+ 
+
+ 
+
+		// Method Reference Collectors.joining
+
+ 
+
+ 
+
+ 
+
+//		List<String> G7 = Arrays.asList("USA", "Japan", "France", "Germany", "Italy", "U.K.","Canada"); 
+
+//		String G7Countries = G7.stream() 
+
+//				.map(String::toUpperCase)
+
+//				.collect(Collectors.joining(", ")); //accepts delimeter.. 
+
+//		
+
+//		System.out.println(G7Countries);
+
+ 
+
+ 
+
+//		System.out.println(" ********** ------- **************\n");
+
+//		// Summary Statistics
+
+//		
+
+		List<Integer> primes = Arrays.asList(2, 13, 5, 17, 11, 3, 17, 8, 9, 23, 21, 29); // 
+
+		System.out.println(primes);
+
+//		
+
+//		IntSummaryStatistics stats = primes.stream() 
+
+//				.mapToInt((x) -> x)    // map ( obj)  vs mapInt (int)
+
+//				.summaryStatistics();  // terminal operation 
+
+//
+
+//		stats.getCount();
+
+//		stats.getMin();		
+
+//		System.out.println(stats);
+
+ 
+
+//		System.out.println(" ********** ---Sorting ---- **************\n");
+
+ 
+
+	// Sorting 
+
+ 
+
+		// Comparable or Comparator - 
+
+ 
+
+		System.out.println(primes.stream()
+
+				.sorted()
+
+				.map(x -> new String(x + ""))
+
+				.collect(Collectors.joining(", "))); 
+
+//				.forEach(System.out::println);
+
+ 
+
+ 
+
+ 
+
+//		// Primitive Streams
+
+//		/*
+
+//
+
+//		IntStream   
+
+//		FloatStream
+
+//		LongStream
+
+//		DoubleStream
+
+//
+
+//		 */
+
+//		
+
+		// Optional class
+
+ 
+
+//		int[] integers = new int[] {20, 98, 12, 7, 35};
+
+//		int min = Arrays.stream(integers)   // Arrays - utility class to perform operations on Arrays
+
+//		 .min()    // Returns OptionalInt
+
+//		 .getAsInt(); // returns 7
+
+//		
+
+//		int sum  = IntStream.of(20, 98, 12, 7, 35).sum();
+
+//		int total = IntStream.of(integers).sum();
+
+//				
+
+//		sum = Arrays.asList(33,45)
+
+//				 .stream()
+
+//				 .mapToInt(i -> i)  // converting Object type(Integer) to primitive( int)
+
+//				 .sum();
+
+//		System.out.println(sum);
+
+////		
+
+//		System.out.println(" ********** ------- **************\n");
+
+//		Stream<Integer> infiniteStream = Stream.iterate(2, i -> i * 2); // 2 4 8 16 32 64 128 256 512 1024.. 2048
+
+//
+
+//		List<Integer> collect = infiniteStream
+
+//		  		.peek(System.out::println)  // peek 
+
+//		  		.limit(10) // 
+
+//		  		
+
+//		  		.skip(3) // 
+
+//		  		.collect(Collectors.toList());  // terminal 
+
+//		System.out.println(collect);
+
+ 
+
+
+
+// 		
+
+ 
+
+ 
+
+//		System.out.println(" ********** --- Custom obj sorting ---- **************\n");
+
+//		
+
+//		List<Order> orders = getOrders();
+
+//		
+
+//		System.out.println(" Before Sorting \n : "); 
+
+//		orders.stream().forEach(System.out::println);
+
+//		
+
+//		System.out.println(" -------------------- after sorting --------- ");
+
+//		
+
+//		orders.stream()
+
+//		.sorted( (o1, o2) -> (int) (o1.getQty() - o2.getQty()))
+
+//		.forEach(System.out::println);
+
+//		
+
+		// Comparable / Comparator  ->  comapre(x, y) /comapreTo ->  retunr type of theswe methods ->  int
+
+ 
+
+ 
+
+ 
+
+ 
+
+		// order notional =  qty * price - 
+
+ 
+
+ 
+
+//		 Double sumOfNotional = orders.stream()
+
+//			   .map(order -> order.getPrice() * order.getQty()) 
+
+//			   .reduce(0.0, Double::sum);   // map reduce - 
+
+//		 
+
+//		 System.out.println(" Total order Notional : " + sumOfNotional);
+
+//		 
+
+//		 
+
+////		 
+
+////	
+
+//		 DoubleSummaryStatistics customStats = orders.stream()
+
+//			   .collect(Collectors.summarizingDouble(Order::getPrice));
+
+//		 
+
+//		 System.out.println(" Summary stats : \n" + customStats);
+
+////		
+
+////		 
+
+//		 List<Integer> intList = Arrays.asList(2, 4, 5, 9, 8,3,11, 6, 8);
+
+//		 
+
+//		  Map<Boolean, List<Integer>> isEven = intList.stream()
+
+//		  		.collect(Collectors.partitioningBy(i -> i % 2 == 0));  //size of map = 2 ;  values are true /false 
+
+//		   
+
+//		   
+
+//		  System.out.println(isEven);
+
+//		  System.out.println(isEven.get(true));
+
+//		  System.out.println(isEven.get(false));
+
+		   
+
+//		   
+
+//		   
+
+//		   
+
+//		  System.out.println(" ----------  **** GroupBy****** ---------------------");
+
+//		  
+
+//		  
+
+//		  Map<String, List<Order>> groupBySide = orders.stream()
+
+//				  .collect(Collectors.groupingBy(e -> e.getSide())); //  map < buy , list <Order> ; sell - List<Order>
+
+//
+
+//		  System.out.println("Buy : + "+ groupBySide.get("Buy"));
+
+//		  System.out.println("Sell :" + groupBySide.get("Sell"));
+
+//		  System.out.println("Sell :" + groupBySide.get("SSell"));
+
+//		
+
+//		  
+
+//		System.out.println(" ********** ------- **************\n");
+
+//		
+
+//		
+
+//		// Map / reduce
+
+//		
+
+//		List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6);
+
+//		int result = numbers
+
+//		 .stream()
+
+//		 .reduce(0, (subtotal, element) -> subtotal + element);
+
+//		
+
+ 
+
+		// numbers.stream().reduce(0, Integer::sum);
+
+ 
+
+	
+
+		// Parallel Streams 
+
+
+
+		long start = System.currentTimeMillis(); // millis since jan 1st 1970 
+
+		 Double sumOfNotional1 = getOrders().stream()
+
+	   .map(order -> order.getPrice() * order.getQty())  // size / kind of operation 
+
+	   .reduce(0.0, Double::sum);
+
+		 long end = System.currentTimeMillis();
+
+		 System.out.println("non-Parallel : " + (end - start)+ " result : " + sumOfNotional1);
+
+ 
+
+		 
+
+		long startP = System.currentTimeMillis();
+
+		 Double sumOfNotional2 = getOrders().parallelStream()
+
+	   .map(order -> order.getPrice() * order.getQty())
+
+	   .reduce(0.0, Double::sum);
+
+		 long endP = System.currentTimeMillis();
+
+		 System.out.println("Parallel   : " + (endP - startP) + " result : " + sumOfNotional2);
+
+
+
+		 
+
+		 
+
+		  // 1 mil - 
+
+		  // 1ooo - thread * 100
+
+		  
+
+		  
+
+		  
+
+		 // parallel stream - 
+
+		  
+
+		 // sequential stream - 
+
+		  
+
+ 
+
+		 // size of stream - too big - then parallel     
+
+//		           not too big -  then sequntial 
+
+	}
+
+	
+
+	
+
+	
+
+	public static List<Order> getOrders() {
+
+ 
+
+		List<Order> orders = new ArrayList<>();
+
+		Order o1 = new Order("1", "GOOG", 200, 125, "Buy");
+
+		Order o2 = new Order("2", "CITI", 100, 125, "Buy");
+
+		Order o3 = new Order("3", "TCS", 30, 125, "Sell");
+
+		Order o4 = new Order("4", "IBM", 70, 125, "Buy");
+
+		Order o5 = new Order("5", "AAPL", 120, 125, "SSell");
+
+		Order o6 = new Order("6", "BT.L", 140, 125, "Buy");
+
+		Order o7 = new Order("7", "GT.L", 260, 125, "SSell");
+
+		Order o8 = new Order("8", "VOD.L", 290, 125, "Buy");
+
+		Order o9 = new Order("9", "FB", 10, 125, "Sell");			
+
+ 
+
+		orders.add(o1);
+
+		orders.add(o2);
+
+		orders.add(o3);
+
+		orders.add(o4);
+
+		orders.add(o5);
+
+		orders.add(o6);
+
+		orders.add(o7);
+
+		orders.add(o8);
+
+		orders.add(o9);
+
+
+
+		return orders;
+
+	}
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+class Order {
+
+	
+
+	String orderId; 
+
+	String symbol;  // GOOG / VOD.L / AAPL
+
+	long Qty;
+
+	double price;  
+
+	String side;  // buy / sell 
+
+	public Order(String orderId, String symbol, long qty, double price, String side) {
+
+		super();
+
+		this.orderId = orderId;
+
+		this.symbol = symbol;
+
+		Qty = qty;
+
+		this.price = price;
+
+		this.side = side;
+
+	}
+
+	public String getOrderId() {
+
+		return orderId;
+
+	}
+
+	public void setOrderId(String orderId) {
+
+		this.orderId = orderId;
+
+	}
+
+	public String getSymbol() {
+
+		return symbol;
+
+	}
+
+	public void setSymbol(String symbol) {
+
+		this.symbol = symbol;
+
+	}
+
+	public long getQty() {
+
+		return Qty;
+
+	}
+
+	public void setQty(long qty) {
+
+		Qty = qty;
+
+	}
+
+	public double getPrice() {
+
+		return price;
+
+	}
+
+	public void setPrice(double price) {
+
+		this.price = price;
+
+	}
+
+	public String getSide() {
+
+		return side;
+
+	}
+
+	public void setSide(String side) {
+
+		this.side = side;
+
+	}
+
+	@Override
+
+	public String toString() {
+
+		return "orderId=" + orderId + ", symbol=" + symbol + ", Qty=" + Qty + ", price=" + price + ", side="+ side;
+
+	}
+
+	
+
+ 
+
+}
+
